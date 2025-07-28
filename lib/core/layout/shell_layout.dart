@@ -13,20 +13,38 @@ class ShellLayout extends ConsumerWidget {
     final location = GoRouter.of(context).location;
     final currentIndex = ref.watch(shellLayoutProvider);
     final setBottomNav = ref.read(shellLayoutProvider.notifier);
-    final indexFromLocation = setBottomNav.getBottomNavIndexFromLocation(
-      location,
-    );
 
-    if (currentIndex != indexFromLocation) {
-      Future.microtask(() {
-        setBottomNav.updateIndex(indexFromLocation);
-      });
+    // location을 직접 체크해서 인덱스 계산
+    int indexFromLocation;
+
+    if (location.contains('/search')) {
+      indexFromLocation = 1;
+    } else if (location.contains('/profile')) {
+      indexFromLocation = 2;
+    } else {
+      indexFromLocation = 0;
     }
+
+    print('=== DEBUG ===');
+    print('Raw location: "$location"');
+    print('Contains /search: ${location.contains('/search')}');
+    print('Contains /profile: ${location.contains('/profile')}');
+    print('Calculated indexFromLocation: $indexFromLocation');
+    print('Current provider index: $currentIndex');
+    print('=============');
+
+    // build 이후에 안전하게 업데이트
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (currentIndex != indexFromLocation) {
+        print('Updating provider from $currentIndex to $indexFromLocation');
+        setBottomNav.updateIndex(indexFromLocation);
+      }
+    });
 
     return Scaffold(
       body: child,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: indexFromLocation,
+        currentIndex: indexFromLocation, // 직접 계산한 값 사용
         onTap: (index) => setBottomNav.onItemTapped(context, index),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),

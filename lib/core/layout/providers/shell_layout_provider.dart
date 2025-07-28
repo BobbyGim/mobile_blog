@@ -8,10 +8,12 @@ final route = ['/', '/search', '/profile'];
 
 @riverpod
 class ShellLayout extends _$ShellLayout {
-  static const List<String> _routes = ['/', '/todo'];
+  static const List<String> _routes = ['/', '/search', '/profile'];
 
   @override
-  int build() => 0;
+  int build() {
+    return 0;
+  }
 
   void updateIndex(int index) {
     state = index;
@@ -27,16 +29,21 @@ class ShellLayout extends _$ShellLayout {
   }
 
   int getBottomNavIndexFromLocation(String location) {
+    int result;
     switch (location) {
       case '/':
-        return 0;
+        result = 0;
+        break;
       case '/search':
-        return 1;
+        result = 1;
+        break;
       case '/profile':
-        return 2;
+        result = 2;
+        break;
       default:
-        return 0;
+        result = 0;
     }
+    return result;
   }
 
   void onItemTapped(BuildContext context, int index) {
