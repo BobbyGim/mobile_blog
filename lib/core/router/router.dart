@@ -5,13 +5,14 @@ import 'package:mobile_blog/features/search/search_page.dart';
 import 'package:mobile_blog/features/profile/profile_page.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/',
+  debugLogDiagnostics: true, // 디버그 로그 활성화
   routes: [
     ShellRoute(
       builder: (context, state, child) => ShellLayout(child: child),
       routes: [
         GoRoute(
-          path: '/home',
+          path: '/',
           pageBuilder: (context, state) =>
               NoTransitionPage(child: const HomePage()),
         ),
