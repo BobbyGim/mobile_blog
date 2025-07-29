@@ -12,12 +12,10 @@ class ShellLayout extends _$ShellLayout {
 
   @override
   int build() {
-    print('ShellLayout provider build() called, returning 0');
     return 0;
   }
 
   void updateIndex(int index) {
-    print('updateIndex called: $index');
     state = index;
   }
 
@@ -50,8 +48,6 @@ class ShellLayout extends _$ShellLayout {
   }
 
   void onItemTapped(BuildContext context, int index) {
-    print('onItemTapped: $index');
-    // 해당 인덱스에 맞는 경로로 이동
     switch (index) {
       case 0:
         context.go('/');

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_blog/core/layout/providers/shell_layout_provider.dart';
+import 'package:mobile_blog/src/core/layout/providers/shell_layout_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -48,6 +48,8 @@ class ShellLayout extends ConsumerWidget {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: indexFromLocation, // 직접 계산한 값 사용
         onTap: (index) => setBottomNav.onItemTapped(context, index),
+        selectedFontSize: 12,
+        unselectedFontSize: 12,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
