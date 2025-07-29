@@ -4,18 +4,20 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'shell_layout_provider.g.dart';
 
-final route = ['/', '/search', '/profile'];
+final route = ['/home', '/search', '/profile'];
 
 @riverpod
 class ShellLayout extends _$ShellLayout {
-  static const List<String> _routes = ['/', '/search', '/profile'];
+  static const List<String> _routes = ['/home', '/search', '/profile'];
 
   @override
   int build() {
+    print('ShellLayout provider build() called, returning 0');
     return 0;
   }
 
   void updateIndex(int index) {
+    print('updateIndex called: $index');
     state = index;
   }
 
@@ -43,14 +45,16 @@ class ShellLayout extends _$ShellLayout {
       default:
         result = 0;
     }
+    print('getBottomNavIndexFromLocation: $location -> $result');
     return result;
   }
 
   void onItemTapped(BuildContext context, int index) {
+    print('onItemTapped: $index');
     // 해당 인덱스에 맞는 경로로 이동
     switch (index) {
       case 0:
-        context.go('/');
+        context.go('/home');
         break;
       case 1:
         context.go('/search');

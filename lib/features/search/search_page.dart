@@ -17,7 +17,7 @@ class SearchPage extends StatelessWidget {
             Text('현재 경로: ${GoRouterState.of(context).matchedLocation}'),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.go('/'),
+              onPressed: () => context.go('/home'),
               child: const Text('홈으로 이동'),
             ),
           ],

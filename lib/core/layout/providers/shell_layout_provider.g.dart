@@ -6,7 +6,7 @@ part of 'shell_layout_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$shellLayoutHash() => r'7767fc07eeb199ef831573fea5442930394f2c7f';
+String _$shellLayoutHash() => r'2e1dcb52d5822c64929798dc30ecda651bd9408f';
 
 /// See also [ShellLayout].
 @ProviderFor(ShellLayout)

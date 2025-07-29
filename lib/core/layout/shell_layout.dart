@@ -16,17 +16,19 @@ class ShellLayout extends ConsumerWidget {
 
     // location을 직접 체크해서 인덱스 계산
     int indexFromLocation;
-
     if (location.contains('/search')) {
       indexFromLocation = 1;
     } else if (location.contains('/profile')) {
       indexFromLocation = 2;
-    } else {
+    } else if (location.contains('/')) {
       indexFromLocation = 0;
+    } else {
+      indexFromLocation = 0; // 기본값
     }
 
     print('=== DEBUG ===');
     print('Raw location: "$location"');
+    print('Contains /home: ${location.contains('/home')}');
     print('Contains /search: ${location.contains('/search')}');
     print('Contains /profile: ${location.contains('/profile')}');
     print('Calculated indexFromLocation: $indexFromLocation');
