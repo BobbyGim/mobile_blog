@@ -54,7 +54,7 @@ class ShellLayout extends _$ShellLayout {
     // 해당 인덱스에 맞는 경로로 이동
     switch (index) {
       case 0:
-        context.go('/home');
+        context.go('/');
         break;
       case 1:
         context.go('/search');
