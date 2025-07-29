@@ -71,6 +71,18 @@ flutter:
   assets:
     - assets/images/
 
+flutter_native_splash:
+  fullscreen: true
+  image: assets/images/logo.png
+  color: '#FFFFFF'
+  android: true
+  ios: true
+  web: false
+
+  android_12:
+    color: '#000000'
+    image: assets/images/logo.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

@@ -12,14 +12,14 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> postNavigatorKey = GlobalKey<NavigatorState>();
 
 final GoRouter router = GoRouter(
-  initialLocation: RouterPath.splash,
+  initialLocation: RouterPath.home,
   debugLogDiagnostics: true,
   routes: [
-    GoRoute(
-      path: RouterPath.splash,
-      pageBuilder: (context, state) =>
-          NoTransitionPage(child: const SplashPage()),
-    ),
+    // GoRoute(
+    //   path: RouterPath.splash,
+    //   pageBuilder: (context, state) =>
+    //       NoTransitionPage(child: const SplashPage()),
+    // ),
     ShellRoute(
       navigatorKey: GlobalKey<NavigatorState>(),
       builder: (context, state, child) => ShellLayout(child: child),
