@@ -25,12 +25,18 @@ class DefaultLayout extends StatelessWidget {
           ? AppBar(
               title: Text(
                 title!,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
+                ),
               ),
-              elevation: 3.0,
+              backgroundColor: Colors.black,
               shadowColor: Colors.black,
               centerTitle: false,
-              actions: actions,
+              actions: [
+                IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+              ],
               automaticallyImplyLeading: automaticallyImplyLeading ?? false,
             )
           : null,

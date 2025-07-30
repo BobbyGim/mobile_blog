@@ -26,15 +26,6 @@ class ShellLayout extends ConsumerWidget {
       indexFromLocation = 0; // 기본값
     }
 
-    print('=== DEBUG ===');
-    print('Raw location: "$location"');
-    print('Contains /home: ${location.contains('/home')}');
-    print('Contains /search: ${location.contains('/search')}');
-    print('Contains /profile: ${location.contains('/profile')}');
-    print('Calculated indexFromLocation: $indexFromLocation');
-    print('Current provider index: $currentIndex');
-    print('=============');
-
     // build 이후에 안전하게 업데이트
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (currentIndex != indexFromLocation) {
