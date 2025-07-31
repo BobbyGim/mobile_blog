@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -43,11 +44,11 @@ class ShellLayout extends _$ShellLayout {
       default:
         result = 0;
     }
-    print('getBottomNavIndexFromLocation: $location -> $result');
     return result;
   }
 
   void onItemTapped(BuildContext context, int index) {
+    HapticFeedback.selectionClick();
     switch (index) {
       case 0:
         context.go('/');

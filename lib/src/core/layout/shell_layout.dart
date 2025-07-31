@@ -16,6 +16,7 @@ class ShellLayout extends ConsumerWidget {
 
     // location을 직접 체크해서 인덱스 계산
     int indexFromLocation;
+
     if (location.contains('/search')) {
       indexFromLocation = 1;
     } else if (location.contains('/profile')) {
@@ -40,11 +41,29 @@ class ShellLayout extends ConsumerWidget {
         currentIndex: indexFromLocation, // 직접 계산한 값 사용
         onTap: (index) => setBottomNav.onItemTapped(context, index),
         selectedFontSize: 12,
+        selectedLabelStyle: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w900,
+        ),
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
         unselectedFontSize: 12,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            activeIcon: Icon(Icons.home),
+            label: '.',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search_outlined),
+            activeIcon: Icon(Icons.search),
+            label: '.',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outlined),
+            activeIcon: Icon(Icons.person),
+            label: '.',
+          ),
         ],
       ),
     );

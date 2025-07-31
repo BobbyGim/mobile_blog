@@ -6,7 +6,6 @@ import 'package:mobile_blog/src/presentation/home/home_page.dart';
 import 'package:mobile_blog/src/presentation/post/post_page.dart';
 import 'package:mobile_blog/src/presentation/profile/profile_page.dart';
 import 'package:mobile_blog/src/presentation/search/search_page.dart';
-import 'package:mobile_blog/src/presentation/splash/splash_page.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> postNavigatorKey = GlobalKey<NavigatorState>();
@@ -15,11 +14,6 @@ final GoRouter router = GoRouter(
   initialLocation: RouterPath.home,
   debugLogDiagnostics: true,
   routes: [
-    // GoRoute(
-    //   path: RouterPath.splash,
-    //   pageBuilder: (context, state) =>
-    //       NoTransitionPage(child: const SplashPage()),
-    // ),
     ShellRoute(
       navigatorKey: GlobalKey<NavigatorState>(),
       builder: (context, state, child) => ShellLayout(child: child),
